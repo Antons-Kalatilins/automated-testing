@@ -46,7 +46,7 @@ pipeline {
                     branch: "main"
                 )
                 bat "git checkout 4e911440a9886c7c26ccbb4eb55f0bc2a5067b51"
-                bat 'pm2 delete greetings-app-dev & EXIT /B 0'
+                bat 'pm2 delete greetings-app-stg & EXIT /B 0'
                 bat 'pm2 start app.py --name greetings-app-stg -- --port 7002'
             }
         }
