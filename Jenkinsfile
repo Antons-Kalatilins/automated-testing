@@ -30,6 +30,12 @@ pipeline {
         stage('tests-on-dev') {
             steps {
                 echo "Testing on dev..."
+                git(
+                    url: "https://github.com/mtararujs/course-js-api-framework.git",
+                    branch: "main"
+                )
+                bat "npm install"
+                bat "npm run greetings greetings_dev"
             }
         }
         stage('deploy-to-stg') {
@@ -46,7 +52,13 @@ pipeline {
         }
         stage('tests-on-stg') {
             steps {
-                echo "Testing on stage..."      
+                echo "Testing on stage..."
+                git(
+                    url: "https://github.com/Antons-Kalatilins/course-js-api-framework.git",
+                    branch: "main"
+                )
+                bat "npm install"
+                bat "npm run greetings greetings_stg"
             }
         }
         stage('deploy-to-preprod') {
@@ -63,7 +75,13 @@ pipeline {
         }
         stage('tests-on-preprod') {
             steps {
-                echo "Testing on preprod..."    
+                echo "Testing on preprod..."
+                git(
+                    url: "https://github.com/Antons-Kalatilins/course-js-api-framework.git",
+                    branch: "main"
+                )
+                bat "npm install"
+                bat "npm run greetings greetings_preprod"
             }
         }
         stage('deploy-to-prod') {
@@ -80,7 +98,13 @@ pipeline {
         }
         stage('tests-on-prod') {
             steps {
-                echo "Testing on prod..."    
+                echo "Testing on prod..."
+                git(
+                    url: "https://github.com/Antons-Kalatilins/course-js-api-framework.git",
+                    branch: "main"
+                )
+                bat "npm install"
+                bat "npm run greetings greetings_prod"
             }
         }
     }
